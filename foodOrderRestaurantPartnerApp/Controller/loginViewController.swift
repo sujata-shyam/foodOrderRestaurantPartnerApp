@@ -15,8 +15,6 @@ class loginViewController: UIViewController
     @IBOutlet weak var txtRestaurantID: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     
-    //let manager = SocketManager(socketURL: URL(string: "https://tummypolice.iyangi.com")!, config: [.log(true), .compress])
-    
     let manager = SocketManager(socketURL: URL(string: "https://tummypolice.iyangi.com")!)
     var socket: SocketIOClient!
     var order:OrderDetail?
@@ -145,7 +143,7 @@ class loginViewController: UIViewController
                 {
                     print(orderID)
                     self.order = orderDetail.first
-                    
+                    self.performSegue(withIdentifier: "goToOrderDetails", sender: self)
 //                    DispatchQueue.main.async
 //                    {
 //                        //Update UI for tableview
