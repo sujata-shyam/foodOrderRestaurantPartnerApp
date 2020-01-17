@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import SocketIO
 
 class loginViewController: UIViewController
 {
-
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var txtRestaurantID: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     
+    //let manager = SocketManager(socketURL: URL(string: "https://tummypolice.iyangi.com")!, config: [.log(true), .compress])
+    
+    let manager = SocketManager(socketURL: URL(string: "https://tummypolice.iyangi.com")!)
+    var socket: SocketIOClient!
+    var order:OrderDetail?
     
     override func viewDidLoad()
     {
@@ -82,8 +87,12 @@ class loginViewController: UIViewController
                 let restaurantResponse = try JSONDecoder().decode(Restaurant.self, from: data)
 
 
-                if let _ = restaurantResponse.name
+                if let restaurantId = restaurantResponse.id
                 {
+                    self.socket = self.manager.defaultSocket
+                    self.setSocketEvents(restaurantId)
+                    //self.closeSocketConnection()
+                    
                     DispatchQueue.main.async
                     {
                         displayAlert(vc: self, title: "", message: "Login Successful.")
@@ -102,6 +111,78 @@ class loginViewController: UIViewController
                 print(error)
             }
             }.resume()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if let orderVC = segue.destination as? OrderDetailsViewController
+        {
+            orderVC.order = order
+        }
+    }
+    
+    //MARK:- Socket functions
+    
+    private func setSocketEvents(_ restaurantId:String)
+    {
+        self.socket.on(clientEvent: .connect) { (data, ack) in
+            print(data)
+            print("Socket connected")
+            self.socket.emit("active restaurant", restaurantId)
+        }
+        
+        self.socket.on("order details") {data, ack in
+            print(data)
+            do
+            {
+                let jsonData = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+
+                let orderDetail = try JSONDecoder().decode([OrderDetail].self, from: jsonData)
+                
+                print(orderDetail)
+                
+                if let orderID = orderDetail.first?.orderId
+                {
+                    print(orderID)
+                    self.order = orderDetail.first
+                    
+//                    DispatchQueue.main.async
+//                    {
+//                        //Update UI for tableview
+//                    }
+                }
+//                else
+//                {
+//                    DispatchQueue.main.async
+//                    {
+//                        displayAlert(vc: self, title: "Failed Login Attempt", message: "User does not exist")
+//                    }
+//                }
+            }
+            catch
+            {
+                print(error)
+            }
+            
+            
+        }
+        
+//        socket.on("currentAmount") {data, ack in
+//            guard let cur = data[0] as? Double else { return }
+//
+//            socket.emitWithAck("canUpdate", cur).timingOut(after: 0) {data in
+//                socket.emit("update", ["amount": cur + 2.50])
+//            }
+//
+//            ack.with("Got your currentAmount", "dude")
+//        }
+        
+        
+        self.socket.connect()
+    }
+    
+    private func closeSocketConnection() {
+        self.socket.disconnect()
     }
 }
 
