@@ -17,19 +17,19 @@ class loginViewController: UIViewController
     
     var restaurantID : String?
     
-//    let manager = SocketManager(socketURL: URL(string: "https://tummypolice.iyangi.com")!)
-//    var socket: SocketIOClient!
-    
-    //var order:OrderDetail?
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        lblTitle.layer.cornerRadius = 10
-        lblTitle.layer.masksToBounds = true
+        setTitleLabelUI()
         setTextDelegate()
     }
 
+    func setTitleLabelUI()
+    {
+        lblTitle.layer.cornerRadius = 10
+        lblTitle.layer.masksToBounds = true
+    }
+    
     func setTextDelegate()
     {
         txtRestaurantID.delegate = self
@@ -79,9 +79,6 @@ class loginViewController: UIViewController
                 return
             }
             
-//            let received = String(data: data, encoding: String.Encoding.utf8)
-//            print("received: \(received)")
-            
             do
             {
                 guard let response = response as? HTTPURLResponse,
@@ -96,13 +93,8 @@ class loginViewController: UIViewController
                 {
                     self.restaurantID = restaurantResponse.id!
 
-                    //self.socket = self.manager.defaultSocket
-                    //self.setSocketEvents(restaurantId)
-                    //self.closeSocketConnection()
-                    
                     DispatchQueue.main.async
                     {
-                        //displayAlert(vc: self, title: "", message: "Login Successful.")
                         self.performSegue(withIdentifier: "goToOrderDetails", sender: self)
                     }
                 }
@@ -127,71 +119,7 @@ class loginViewController: UIViewController
         {
             orderVC.restaurantId = restaurantID
         }
-    }
-    
-    //MARK:- Socket functions
-    
-//    private func setSocketEvents(_ restaurantId:String)
-//    {
-//        self.socket.on(clientEvent: .connect) { (data, ack) in
-//            print(data)
-//            print("Socket connected")
-//            self.socket.emit("active restaurant", restaurantId)
-//        }
-//
-//        self.socket.on("order details") {data, ack in
-//            print(data)
-//            do
-//            {
-//                let jsonData = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
-//
-//                let orderDetail = try JSONDecoder().decode([OrderDetail].self, from: jsonData)
-//
-//                print(orderDetail)
-//
-//                if let orderID = orderDetail.first?.orderId
-//                {
-//                    print(orderID)
-//                    self.order = orderDetail.first
-//                    self.performSegue(withIdentifier: "goToOrderDetails", sender: self)
-////                    DispatchQueue.main.async
-////                    {
-////                        //Update UI for tableview
-////                    }
-//                }
-////                else
-////                {
-////                    DispatchQueue.main.async
-////                    {
-////                        displayAlert(vc: self, title: "Failed Login Attempt", message: "User does not exist")
-////                    }
-////                }
-//            }
-//            catch
-//            {
-//                print(error)
-//            }
-//
-//
-//        }
-//
-////        socket.on("currentAmount") {data, ack in
-////            guard let cur = data[0] as? Double else { return }
-////
-////            socket.emitWithAck("canUpdate", cur).timingOut(after: 0) {data in
-////                socket.emit("update", ["amount": cur + 2.50])
-////            }
-////
-////            ack.with("Got your currentAmount", "dude")
-////        }
-//
-//
-//        self.socket.connect()
-//    }
-//
-//    private func closeSocketConnection() {
-//        self.socket.disconnect()
-//    }
+    }    
 }
 
 extension loginViewController:UITextFieldDelegate
