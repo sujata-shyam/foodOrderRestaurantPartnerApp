@@ -84,7 +84,6 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="btnLoginTapped:" destination="10K-yH-VQ6" eventType="touchUpInside" id="aZb-m9-wjw"/>
-                                            <segue destination="FNn-Pr-BS7" kind="show" identifier="goToOrderDetails" id="xbz-GH-WeP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ch-0s-jJu">
@@ -160,6 +159,7 @@
                         <outlet property="lblTitle" destination="dtX-yO-bS5" id="jH8-jS-2Kh"/>
                         <outlet property="txtPassword" destination="yuT-Ql-cHp" id="twG-dp-b7S"/>
                         <outlet property="txtRestaurantID" destination="pGV-89-djg" id="sdf-XE-v5J"/>
+                        <segue destination="FNn-Pr-BS7" kind="show" identifier="goToOrderDetails" id="WxR-J9-GEU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uuS-aH-1OU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -180,7 +180,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9m-UA-x7U" userLabel="viewOrderDetails">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9m-UA-x7U" userLabel="viewOrderDetails">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmI-Vx-fc3" userLabel="lblTitle">
@@ -193,9 +193,49 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tca-wl-lfd" userLabel="orderTableView">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tca-wl-lfd" userLabel="orderTableView">
                                         <rect key="frame" x="20" y="80" width="374" height="627"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderDetailCell" rowHeight="70" id="OjV-Um-pcs" customClass="orderDetailTableViewCell" customModule="foodOrderRestaurantPartnerApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="374" height="70"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OjV-Um-pcs" id="BgB-F9-Nga">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="69.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lj-k3-QrA" userLabel="lblItemName">
+                                                            <rect key="frame" x="5" y="5" width="224.5" height="59.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WpS-WA-aSc" userLabel="lblItemQuantity">
+                                                            <rect key="frame" x="234.5" y="5" width="134.5" height="59.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="7lj-k3-QrA" firstAttribute="top" secondItem="BgB-F9-Nga" secondAttribute="top" constant="5" id="9kp-6w-F2G"/>
+                                                        <constraint firstItem="WpS-WA-aSc" firstAttribute="leading" secondItem="7lj-k3-QrA" secondAttribute="trailing" constant="5" id="LVi-Ou-SiX"/>
+                                                        <constraint firstAttribute="bottom" secondItem="WpS-WA-aSc" secondAttribute="bottom" constant="5" id="UhT-zP-k6i"/>
+                                                        <constraint firstItem="7lj-k3-QrA" firstAttribute="leading" secondItem="BgB-F9-Nga" secondAttribute="leading" constant="5" id="Zrh-Vw-GDL"/>
+                                                        <constraint firstAttribute="bottom" secondItem="7lj-k3-QrA" secondAttribute="bottom" constant="5" id="c14-ca-jkH"/>
+                                                        <constraint firstItem="WpS-WA-aSc" firstAttribute="top" secondItem="BgB-F9-Nga" secondAttribute="top" constant="5" id="oGR-dd-f4R"/>
+                                                        <constraint firstAttribute="trailing" secondItem="WpS-WA-aSc" secondAttribute="trailing" constant="5" id="ulg-xD-Xhj"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <constraints>
+                                                    <constraint firstItem="7lj-k3-QrA" firstAttribute="width" secondItem="OjV-Um-pcs" secondAttribute="width" multiplier="0.6" id="kp7-OJ-J7c"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="lblItemName" destination="7lj-k3-QrA" id="cyW-xY-fIv"/>
+                                                    <outlet property="lblItemQuantity" destination="WpS-WA-aSc" id="W1O-qq-OKt"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xh8-1q-wrJ" userLabel="btnAcceptOrder">
                                         <rect key="frame" x="103.5" y="717" width="207" height="40"/>
