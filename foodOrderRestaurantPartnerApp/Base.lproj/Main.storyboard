@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="MKO-sR-62V" userLabel="imgView">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="MKO-sR-62V" userLabel="imgView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Food Restaurant Partner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtX-yO-bS5" userLabel="lblTitle">
@@ -86,14 +86,6 @@
                                             <action selector="btnLoginTapped:" destination="10K-yH-VQ6" eventType="touchUpInside" id="aZb-m9-wjw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ch-0s-jJu">
-                                        <rect key="frame" x="231" y="284" width="133" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="BpP-Gz-PTI"/>
-                                            <constraint firstAttribute="height" constant="30" id="vKO-Uk-EN8"/>
-                                        </constraints>
-                                        <state key="normal" title="New User? Sign Up"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="White Smoke"/>
                                 <constraints>
@@ -104,15 +96,12 @@
                                     <constraint firstItem="48r-4R-Ni0" firstAttribute="top" secondItem="yuT-Ql-cHp" secondAttribute="bottom" constant="10" id="L8l-Lf-cZK"/>
                                     <constraint firstAttribute="trailing" secondItem="yuT-Ql-cHp" secondAttribute="trailing" constant="10" id="Q8t-Mf-7Ta"/>
                                     <constraint firstItem="yuT-Ql-cHp" firstAttribute="leading" secondItem="KOA-Uk-PeM" secondAttribute="leading" constant="10" id="S5g-NR-0nN"/>
-                                    <constraint firstAttribute="bottom" secondItem="4ch-0s-jJu" secondAttribute="bottom" id="Yr5-hN-nkW"/>
                                     <constraint firstItem="pGV-89-djg" firstAttribute="leading" secondItem="KOA-Uk-PeM" secondAttribute="leading" constant="10" id="ZxI-dh-bMT"/>
                                     <constraint firstItem="N76-Lr-xaZ" firstAttribute="top" secondItem="KOA-Uk-PeM" secondAttribute="top" constant="10" id="cPk-4m-gIR"/>
                                     <constraint firstItem="N76-Lr-xaZ" firstAttribute="leading" secondItem="KOA-Uk-PeM" secondAttribute="leading" constant="10" id="fff-k1-gf1"/>
                                     <constraint firstItem="yuT-Ql-cHp" firstAttribute="top" secondItem="pGV-89-djg" secondAttribute="bottom" constant="10" id="fpD-Ge-wJB"/>
                                     <constraint firstItem="48r-4R-Ni0" firstAttribute="centerX" secondItem="KOA-Uk-PeM" secondAttribute="centerX" id="glH-wr-hPJ"/>
                                     <constraint firstAttribute="trailing" secondItem="pGV-89-djg" secondAttribute="trailing" constant="10" id="ojX-EV-lgr"/>
-                                    <constraint firstItem="4ch-0s-jJu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KOA-Uk-PeM" secondAttribute="leading" constant="20" symbolic="YES" id="rD2-DQ-fL2"/>
-                                    <constraint firstAttribute="trailing" secondItem="4ch-0s-jJu" secondAttribute="trailing" constant="10" id="tA7-jY-0Ce"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -295,7 +284,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="305" height="433"/>
+        <image name="background" width="316" height="431"/>
         <namedColor name="Fire Brick">
             <color red="0.73725490196078436" green="0.19215686274509805" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
