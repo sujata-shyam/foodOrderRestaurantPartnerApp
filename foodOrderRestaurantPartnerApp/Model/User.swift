@@ -23,3 +23,4 @@ struct Restaurant:Codable
     let latitude: String?
     let longitude: String?
 }
+
