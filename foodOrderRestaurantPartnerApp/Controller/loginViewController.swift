@@ -92,7 +92,8 @@ class loginViewController: UIViewController
                 if restaurantResponse.id != nil
                 {
                     self.restaurantID = restaurantResponse.id!
-
+                    SocketIOManager.sharedInstance.emitActiveRestaurant(self.restaurantID!)
+                    
                     DispatchQueue.main.async
                     {
                         self.performSegue(withIdentifier: "goToOrderDetails", sender: self)

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SocketIO
+//import SocketIO
 
 class OrderDetailsViewController: UIViewController
 {
@@ -15,8 +15,11 @@ class OrderDetailsViewController: UIViewController
     @IBOutlet weak var viewOrderDetails: UIView!
     @IBOutlet weak var orderTableView: UITableView!
  
-    let manager = SocketManager(socketURL: URL(string: "https://tummypolice.iyangi.com")!)
-    var socket: SocketIOClient!
+    //let manager = SocketManager(socketURL: URL(string: "https://tummypolice.iyangi.com")!)
+//    let manager = SocketManager(socketURL: URL(string: "https://tummypolice.iyangi.com")!, config: [.log(true)])
+//
+//    
+//    var socket: SocketIOClient!
     
     var restaurantId : String? //Value passed from prev.View Controller thru. segue
     var orderItem = [CartItemDetail]()
@@ -29,76 +32,108 @@ class OrderDetailsViewController: UIViewController
         orderTableView.delegate = self
         orderTableView.dataSource = self
         
-        self.socket = self.manager.defaultSocket
-        self.setSocketEvents()
-        //self.closeSocketConnection()
+        //self.socket = self.manager.defaultSocket
+        //self.setSocketEvents()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleIncomingOrder), name: NSNotification.Name("gotOrderDetail"), object: nil)
+    }
+    
+    @objc func handleIncomingOrder(notification: Notification)
+    {
+        let orderDetail = notification.object as! [OrderDetail]
+        
+        //print("Notification orderDetail: \(orderDetail)")
+        
+        if let orderID = orderDetail.first?.orderId
+        {
+            print("Notification orderID: \(orderID)")
+            
+            self.orderItem = Array(orderDetail.first!.cartItems!.values) as! [CartItemDetail]
+            self.orderId = orderID
+            
+            DispatchQueue.main.async
+            {
+                self.lblNoOrder.isHidden = true
+                self.viewOrderDetails.isHidden = false
+                self.orderTableView.reloadData()
+            }
+        }
+        else
+        {
+            DispatchQueue.main.async
+            {
+                self.lblNoOrder.isHidden = false
+                self.viewOrderDetails.isHidden = true
+            }
+        }
     }
     
     @IBAction func btnAcceptOrderTapped(_ sender: UIButton)
     {
         if(orderId != nil)
         {
-            self.socket.emit("order approved", self.orderId!)
+            //self.socket.emit("order approved", self.orderId!)
+            SocketIOManager.sharedInstance.emitOrderApproved(self.orderId!)
         }
     }
     
     //MARK:- Socket functions
     
-    private func setSocketEvents()
-    {
-        self.socket.on(clientEvent: .connect) { (data, ack) in
-            print(data)
-            print("Socket connected")
-            self.socket.emit("active restaurant", self.restaurantId!)
-        }
+//    private func setSocketEvents()
+//    {
+//        self.socket.on(clientEvent: .connect) { (data, ack) in
+//            print(data)
+//            print("Socket connected")
+//            self.socket.emit("active restaurant", self.restaurantId!)
+//        }
         
-        self.socket.on("order details") {data, ack in
-           
-            print(data)
-            do
-            {
-                let jsonData = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
-                
-                let orderDetail = try JSONDecoder().decode([OrderDetail].self, from: jsonData)
-                
-                print(orderDetail)
-                
-                if let orderID = orderDetail.first?.orderId
-                {
-                    print(orderID)
-                    
-                    self.orderItem = Array(orderDetail.first!.cartItems!.values) as! [CartItemDetail]
-                    self.orderId = orderID
-                    
-                    DispatchQueue.main.async
-                    {
-                        self.lblNoOrder.isHidden = true
-                        self.viewOrderDetails.isHidden = false
-                        self.orderTableView.reloadData()
-                    }
-                }
-                else
-                {
-                    DispatchQueue.main.async
-                    {
-                        self.lblNoOrder.isHidden = false
-                        self.viewOrderDetails.isHidden = true
-                    }
-                }
-            }
-            catch
-            {
-                print(error)
-            }
-        }
-        self.socket.connect()
+//        self.socket.on("order details") {data, ack in
+//
+//            print(data)
+//            do
+//            {
+//                let jsonData = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
+//
+//                let orderDetail = try JSONDecoder().decode([OrderDetail].self, from: jsonData)
+//
+//                print(orderDetail)
+//
+//                if let orderID = orderDetail.first?.orderId
+//                {
+//                    print(orderID)
+//
+//                    self.orderItem = Array(orderDetail.first!.cartItems!.values) as! [CartItemDetail]
+//                    self.orderId = orderID
+//
+//                    DispatchQueue.main.async
+//                    {
+//                        self.lblNoOrder.isHidden = true
+//                        self.viewOrderDetails.isHidden = false
+//                        self.orderTableView.reloadData()
+//                    }
+//                }
+//                else
+//                {
+//                    DispatchQueue.main.async
+//                    {
+//                        self.lblNoOrder.isHidden = false
+//                        self.viewOrderDetails.isHidden = true
+//                    }
+//                }
+//            }
+//            catch
+//            {
+//                print(error)
+//            }
+//        }
+        //self.socket.connect()
     }
     
-    private func closeSocketConnection()
-    {
-        self.socket.disconnect()
-    }
-}
+//    private func closeSocketConnection()
+//    {
+//        self.socket.disconnect()
+//    }
+//}
 
 
 extension OrderDetailsViewController: UITableViewDelegate,

@@ -11,6 +11,7 @@
 		851BC24923D576D4004B1E18 /* orderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851BC24823D576D4004B1E18 /* orderDetailTableViewCell.swift */; };
 		857EA19923D07B2C0022A934 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857EA19823D07B2C0022A934 /* OrderDetailsViewController.swift */; };
 		857EA19B23D16F4D0022A934 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857EA19A23D16F4D0022A934 /* Order.swift */; };
+		857FC01223EAB3DB0077FAB5 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857FC01123EAB3DB0077FAB5 /* SocketIOManager.swift */; };
 		85A1A02723CF097D008F961C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1A02623CF097D008F961C /* AppDelegate.swift */; };
 		85A1A02923CF097D008F961C /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1A02823CF097D008F961C /* loginViewController.swift */; };
 		85A1A02C23CF097D008F961C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85A1A02A23CF097D008F961C /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		851BC24823D576D4004B1E18 /* orderDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderDetailTableViewCell.swift; sourceTree = "<group>"; };
 		857EA19823D07B2C0022A934 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		857EA19A23D16F4D0022A934 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		857FC01123EAB3DB0077FAB5 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SocketIOManager.swift; path = ../SocketIOManager.swift; sourceTree = "<group>"; };
 		85A1A02323CF097D008F961C /* foodOrderRestaurantPartnerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodOrderRestaurantPartnerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85A1A02623CF097D008F961C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85A1A02823CF097D008F961C /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		85A1A03C23CF166C008F961C /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				857FC01123EAB3DB0077FAB5 /* SocketIOManager.swift */,
 				85A1A03D23CF1688008F961C /* GlobalFunctions.swift */,
 			);
 			path = Global;
@@ -257,6 +260,7 @@
 				85A1A02923CF097D008F961C /* loginViewController.swift in Sources */,
 				85A1A03E23CF1688008F961C /* GlobalFunctions.swift in Sources */,
 				85A1A04223CF181E008F961C /* User.swift in Sources */,
+				857FC01223EAB3DB0077FAB5 /* SocketIOManager.swift in Sources */,
 				857EA19923D07B2C0022A934 /* OrderDetailsViewController.swift in Sources */,
 				85A1A02723CF097D008F961C /* AppDelegate.swift in Sources */,
 				851BC24923D576D4004B1E18 /* orderDetailTableViewCell.swift in Sources */,
