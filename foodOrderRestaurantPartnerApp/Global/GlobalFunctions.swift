@@ -8,7 +8,7 @@
 
 import UIKit
 
-let defaults = UserDefaults.standard
+//let defaults = UserDefaults.standard
 
 func displayAlert(vc: UIViewController, title: String, message: String)
 {

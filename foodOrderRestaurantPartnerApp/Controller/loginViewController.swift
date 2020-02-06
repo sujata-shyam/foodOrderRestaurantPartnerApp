@@ -36,6 +36,12 @@ class loginViewController: UIViewController
         txtPassword.delegate = self
     }
     
+    func clearUIFields()
+    {
+        self.txtRestaurantID.text = nil
+        self.txtPassword.text = nil
+    }
+    
     @IBAction func btnLoginTapped(_ sender: UIButton)
     {
         if(txtRestaurantID.text!.isEmpty || txtPassword.text!.isEmpty)
@@ -47,6 +53,9 @@ class loginViewController: UIViewController
             loadLoginData(txtRestaurantID.text!)
         }
     }
+    
+    @IBAction func unwindTologinVC(segue:UIStoryboardSegue)
+    {}
     
     func loadLoginData(_ restaurantName: String)
     {
@@ -96,6 +105,7 @@ class loginViewController: UIViewController
                     
                     DispatchQueue.main.async
                     {
+                        self.clearUIFields()
                         self.performSegue(withIdentifier: "goToOrderDetails", sender: self)
                     }
                 }

@@ -27,25 +27,18 @@ class SocketIOManager: NSObject
         socket.connect()
         socket.on(clientEvent: .connect) {data, ack in
             print("Socket Connected!")
-            //self.onOrderDetails()
             
             self.socket.on("order details") {data, ack in
                 
-                print("onOrderDetails :\(data)")
                 do
                 {
                     let jsonData = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
                     
                     let orderDetail = try JSONDecoder().decode([OrderDetail].self, from: jsonData)
                     
-                    print(orderDetail)
                     
-                    if let orderID = orderDetail.first?.orderId
+                    if (orderDetail.first?.orderId) != nil
                     {
-                        print(orderID)
-                        
-                        //let orderItem = Array(orderDetail.first!.cartItems!.values) as! [CartItemDetail]
-                        
                         NotificationCenter.default.post(name: NSNotification.Name("gotOrderDetail"), object: orderDetail)
                     }
                 }
@@ -54,7 +47,6 @@ class SocketIOManager: NSObject
                     print(error)
                 }
             }
-            
         }
     }
     
@@ -75,35 +67,6 @@ class SocketIOManager: NSObject
     func emitActiveRestaurant(_ restaurantId: String)
     {
         self.socket.emit("active restaurant", restaurantId)
-    }
-    
-    func onOrderDetails()
-    {
-        self.socket.on("order details") {data, ack in
-            
-            print("onOrderDetails :\(data)")
-            do
-            {
-                let jsonData = try JSONSerialization.data(withJSONObject: data, options: .prettyPrinted)
-                
-                let orderDetail = try JSONDecoder().decode([OrderDetail].self, from: jsonData)
-                
-                print(orderDetail)
-                
-                if let orderID = orderDetail.first?.orderId
-                {
-                    print(orderID)
-                
-                    //let orderItem = Array(orderDetail.first!.cartItems!.values) as! [CartItemDetail]
-                    
-                    NotificationCenter.default.post(name: NSNotification.Name("gotOrderDetail"), object: orderDetail)
-                }
-            }
-            catch
-            {
-                print(error)
-            }
-        }
     }
 }
 
