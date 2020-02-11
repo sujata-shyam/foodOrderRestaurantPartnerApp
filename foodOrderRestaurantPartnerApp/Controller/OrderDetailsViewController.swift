@@ -12,6 +12,7 @@ class OrderDetailsViewController: UIViewController
 {
     @IBOutlet weak var lblNoOrder: UILabel!
     @IBOutlet weak var viewOrderDetails: UIView!
+    @IBOutlet weak var lblOrderNumber: UILabel!
     @IBOutlet weak var orderTableView: UITableView!
     @IBOutlet weak var btnAcceptOrder: UIButton!
     @IBOutlet weak var btnCompleted: UIButton!
@@ -43,6 +44,7 @@ class OrderDetailsViewController: UIViewController
             {
                 self.lblNoOrder.isHidden = true
                 self.viewOrderDetails.isHidden = false
+                self.lblOrderNumber.text = "ORDER #\(orderID.prefix(6))"
                 self.orderTableView.reloadData()
             }
         }

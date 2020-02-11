@@ -174,16 +174,17 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmI-Vx-fc3" userLabel="lblTitle">
                                         <rect key="frame" x="20" y="20" width="374" height="40"/>
+                                        <color key="backgroundColor" name="White Smoke"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="GyB-mL-ONr"/>
                                             <constraint firstAttribute="height" constant="40" id="dnV-BC-brP"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" name="Fire Brick"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tca-wl-lfd" userLabel="orderTableView">
-                                        <rect key="frame" x="20" y="80" width="374" height="582.5"/>
+                                        <rect key="frame" x="20" y="110" width="374" height="537.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="orderDetailCell" rowHeight="70" id="OjV-Um-pcs" customClass="orderDetailTableViewCell" customModule="foodOrderRestaurantPartnerApp" customModuleProvider="target">
@@ -227,7 +228,7 @@
                                         </prototypes>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xh8-1q-wrJ" userLabel="btnAcceptOrder">
-                                        <rect key="frame" x="103.5" y="672.5" width="207" height="40"/>
+                                        <rect key="frame" x="103.5" y="657.5" width="207" height="40"/>
                                         <color key="backgroundColor" name="Tan"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="tvJ-a9-Paq"/>
@@ -246,7 +247,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDe-kN-iHG" userLabel="btnCompleted">
-                                        <rect key="frame" x="103.5" y="721.5" width="207" height="40"/>
+                                        <rect key="frame" x="103.5" y="706.5" width="207" height="40"/>
                                         <color key="backgroundColor" name="Tan"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="27n-4p-I4k"/>
@@ -264,16 +265,28 @@
                                             <action selector="btnCompletedTapped:" destination="FNn-Pr-BS7" eventType="touchUpInside" id="C4h-qd-Jdy"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwX-7E-ykD" userLabel="lblOrderNumber">
+                                        <rect key="frame" x="10" y="70" width="394" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Tog-uV-OwJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="xh8-1q-wrJ" firstAttribute="top" secondItem="Tca-wl-lfd" secondAttribute="bottom" constant="10" id="48B-Wg-LbR"/>
+                                    <constraint firstItem="Tca-wl-lfd" firstAttribute="top" secondItem="zwX-7E-ykD" secondAttribute="bottom" constant="10" id="7Ec-GB-jeK"/>
+                                    <constraint firstAttribute="trailing" secondItem="zwX-7E-ykD" secondAttribute="trailing" constant="10" id="EqJ-BB-Cav"/>
                                     <constraint firstItem="QDe-kN-iHG" firstAttribute="width" secondItem="w9m-UA-x7U" secondAttribute="width" multiplier="0.5" id="KbK-2K-AgQ"/>
                                     <constraint firstAttribute="trailing" secondItem="Tca-wl-lfd" secondAttribute="trailing" constant="20" id="KvC-sJ-Vi6"/>
                                     <constraint firstItem="xh8-1q-wrJ" firstAttribute="centerX" secondItem="w9m-UA-x7U" secondAttribute="centerX" id="MBf-Ku-2ec"/>
                                     <constraint firstItem="QDe-kN-iHG" firstAttribute="centerX" secondItem="w9m-UA-x7U" secondAttribute="centerX" id="VGX-2x-8hp"/>
+                                    <constraint firstItem="zwX-7E-ykD" firstAttribute="top" secondItem="xmI-Vx-fc3" secondAttribute="bottom" constant="10" id="Ypq-aF-IRU"/>
                                     <constraint firstAttribute="trailing" secondItem="xmI-Vx-fc3" secondAttribute="trailing" constant="20" id="eVb-BS-lrQ"/>
-                                    <constraint firstItem="Tca-wl-lfd" firstAttribute="top" secondItem="xmI-Vx-fc3" secondAttribute="bottom" constant="20" id="l4q-Es-wy4"/>
+                                    <constraint firstItem="zwX-7E-ykD" firstAttribute="leading" secondItem="w9m-UA-x7U" secondAttribute="leading" constant="10" id="l0S-y0-dnF"/>
                                     <constraint firstItem="QDe-kN-iHG" firstAttribute="top" secondItem="xh8-1q-wrJ" secondAttribute="bottom" constant="9" id="nUa-wi-C8f"/>
                                     <constraint firstItem="xmI-Vx-fc3" firstAttribute="leading" secondItem="w9m-UA-x7U" secondAttribute="leading" constant="20" id="rmK-Y4-QS7"/>
                                     <constraint firstItem="xmI-Vx-fc3" firstAttribute="top" secondItem="w9m-UA-x7U" secondAttribute="top" constant="20" id="sHw-je-gbo"/>
@@ -290,7 +303,7 @@
                             <constraint firstItem="xh8-1q-wrJ" firstAttribute="width" secondItem="kq9-ZE-dY3" secondAttribute="width" multiplier="0.5" id="XrL-X2-ayE"/>
                             <constraint firstItem="baW-5v-OTy" firstAttribute="centerX" secondItem="kq9-ZE-dY3" secondAttribute="centerX" id="oV2-sw-rTZ"/>
                             <constraint firstItem="baW-5v-OTy" firstAttribute="top" secondItem="dcg-3C-x23" secondAttribute="top" constant="40" id="sKV-9u-2s0"/>
-                            <constraint firstItem="Tca-wl-lfd" firstAttribute="height" secondItem="kq9-ZE-dY3" secondAttribute="height" multiplier="0.65" id="xJz-Fx-Ltu"/>
+                            <constraint firstItem="Tca-wl-lfd" firstAttribute="height" secondItem="kq9-ZE-dY3" secondAttribute="height" multiplier="0.6" id="xJz-Fx-Ltu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dcg-3C-x23"/>
                     </view>
@@ -298,6 +311,7 @@
                         <outlet property="btnAcceptOrder" destination="xh8-1q-wrJ" id="Ss5-qX-k0n"/>
                         <outlet property="btnCompleted" destination="QDe-kN-iHG" id="Ufh-HW-T7T"/>
                         <outlet property="lblNoOrder" destination="baW-5v-OTy" id="bek-QN-Qwp"/>
+                        <outlet property="lblOrderNumber" destination="zwX-7E-ykD" id="vRk-iM-bcz"/>
                         <outlet property="orderTableView" destination="Tca-wl-lfd" id="Srn-Jd-ULS"/>
                         <outlet property="viewOrderDetails" destination="w9m-UA-x7U" id="nZw-My-gLj"/>
                         <segue destination="BEj-zy-ohW" kind="show" identifier="goToCompletion" id="NSy-x3-Mna"/>
