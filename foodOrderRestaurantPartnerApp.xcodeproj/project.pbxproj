@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3D3851C71A67B4021319A8C8 /* Pods_foodOrderRestaurantPartnerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68229117A9130F4910EEA606 /* Pods_foodOrderRestaurantPartnerApp.framework */; };
-		850B104F23EBDD96004DF4D1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 850B104E23EBDD96004DF4D1 /* Default-568h@2x.png */; };
 		850B105123EBE30A004DF4D1 /* completionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B105023EBE30A004DF4D1 /* completionViewController.swift */; };
 		851BC24923D576D4004B1E18 /* orderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851BC24823D576D4004B1E18 /* orderDetailTableViewCell.swift */; };
 		857EA19923D07B2C0022A934 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857EA19823D07B2C0022A934 /* OrderDetailsViewController.swift */; };
@@ -27,7 +26,6 @@
 /* Begin PBXFileReference section */
 		68229117A9130F4910EEA606 /* Pods_foodOrderRestaurantPartnerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodOrderRestaurantPartnerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		720260B92D433699AA305B1C /* Pods-foodOrderRestaurantPartnerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodOrderRestaurantPartnerApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodOrderRestaurantPartnerApp/Pods-foodOrderRestaurantPartnerApp.debug.xcconfig"; sourceTree = "<group>"; };
-		850B104E23EBDD96004DF4D1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		850B105023EBE30A004DF4D1 /* completionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = completionViewController.swift; sourceTree = "<group>"; };
 		851BC24823D576D4004B1E18 /* orderDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderDetailTableViewCell.swift; sourceTree = "<group>"; };
 		857EA19823D07B2C0022A934 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +37,7 @@
 		85A1A02B23CF097D008F961C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85A1A02D23CF0980008F961C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85A1A03023CF0980008F961C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		85A1A03223CF0980008F961C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		85A1A03223CF0980008F961C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85A1A03823CF0F57008F961C /* Colour.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colour.xcassets; path = ../Colour.xcassets; sourceTree = "<group>"; };
 		85A1A03D23CF1688008F961C /* GlobalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFunctions.swift; sourceTree = "<group>"; };
 		85A1A04123CF181E008F961C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 		85A1A01A23CF097D008F961C = {
 			isa = PBXGroup;
 			children = (
-				850B104E23EBDD96004DF4D1 /* Default-568h@2x.png */,
 				85A1A02523CF097D008F961C /* foodOrderRestaurantPartnerApp */,
 				85A1A02423CF097D008F961C /* Products */,
 				46654DA1A05AD3F95D6AEF16 /* Pods */,
@@ -226,7 +223,6 @@
 				85A1A03123CF0980008F961C /* LaunchScreen.storyboard in Resources */,
 				85A1A02E23CF0980008F961C /* Assets.xcassets in Resources */,
 				85A1A02C23CF097D008F961C /* Main.storyboard in Resources */,
-				850B104F23EBDD96004DF4D1 /* Default-568h@2x.png in Resources */,
 				85A1A03923CF0F57008F961C /* Colour.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
