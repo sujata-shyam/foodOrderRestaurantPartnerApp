@@ -87,7 +87,6 @@ class loginViewController: UIViewController
                 }
                 return
             }
-            
             do
             {
                 guard let response = response as? HTTPURLResponse,

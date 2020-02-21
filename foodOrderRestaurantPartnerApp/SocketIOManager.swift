@@ -36,7 +36,6 @@ class SocketIOManager: NSObject
                     
                     let orderDetail = try JSONDecoder().decode([OrderDetail].self, from: jsonData)
                     
-                    
                     if (orderDetail.first?.orderId) != nil
                     {
                         NotificationCenter.default.post(name: NSNotification.Name("gotOrderDetail"), object: orderDetail)

@@ -10,6 +10,7 @@
 		3D3851C71A67B4021319A8C8 /* Pods_foodOrderRestaurantPartnerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68229117A9130F4910EEA606 /* Pods_foodOrderRestaurantPartnerApp.framework */; };
 		850B105123EBE30A004DF4D1 /* completionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B105023EBE30A004DF4D1 /* completionViewController.swift */; };
 		851BC24923D576D4004B1E18 /* orderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851BC24823D576D4004B1E18 /* orderDetailTableViewCell.swift */; };
+		854384E523FF89F1006D0597 /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854384E423FF89F1006D0597 /* NetworkCheck.swift */; };
 		857EA19923D07B2C0022A934 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857EA19823D07B2C0022A934 /* OrderDetailsViewController.swift */; };
 		857EA19B23D16F4D0022A934 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857EA19A23D16F4D0022A934 /* Order.swift */; };
 		857FC01223EAB3DB0077FAB5 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857FC01123EAB3DB0077FAB5 /* SocketIOManager.swift */; };
@@ -28,6 +29,7 @@
 		720260B92D433699AA305B1C /* Pods-foodOrderRestaurantPartnerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodOrderRestaurantPartnerApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-foodOrderRestaurantPartnerApp/Pods-foodOrderRestaurantPartnerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		850B105023EBE30A004DF4D1 /* completionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = completionViewController.swift; sourceTree = "<group>"; };
 		851BC24823D576D4004B1E18 /* orderDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderDetailTableViewCell.swift; sourceTree = "<group>"; };
+		854384E423FF89F1006D0597 /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
 		857EA19823D07B2C0022A934 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		857EA19A23D16F4D0022A934 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		857FC01123EAB3DB0077FAB5 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SocketIOManager.swift; path = ../SocketIOManager.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				857FC01123EAB3DB0077FAB5 /* SocketIOManager.swift */,
 				85A1A03D23CF1688008F961C /* GlobalFunctions.swift */,
+				854384E423FF89F1006D0597 /* NetworkCheck.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				857EA19B23D16F4D0022A934 /* Order.swift in Sources */,
+				854384E523FF89F1006D0597 /* NetworkCheck.swift in Sources */,
 				85A1A02923CF097D008F961C /* loginViewController.swift in Sources */,
 				85A1A03E23CF1688008F961C /* GlobalFunctions.swift in Sources */,
 				85A1A04223CF181E008F961C /* User.swift in Sources */,
